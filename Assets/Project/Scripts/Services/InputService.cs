@@ -41,11 +41,13 @@ public class InputService : IDisposable
     private void Subscribe()
     {
         _actions.Player.Move.performed += OnMove;
+        _actions.Player.Move.canceled += OnMove;
     }
 
     private void UnSubscribe()
     {
         _actions.Player.Move.performed -= OnMove;
+        _actions.Player.Move.canceled -= OnMove;
     }
 
     public void Dispose()
