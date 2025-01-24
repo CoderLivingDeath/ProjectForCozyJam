@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Snowman_2_with_gift_activate_0: 5290197420872626700
+      Snowman_2_with_gift_activate_1: -2134792390597142324
+      Snowman_2_with_gift_activate_2: -1323842768576481797
+      Snowman_2_with_gift_activate_3: 1003726158166032513
+      Snowman_2_with_gift_activate_4: 2007106103676707980
+      Snowman_2_with_gift_activate_5: 6152473351016777230
+      Snowman_2_with_gift_activate_6: -9178588338580983241
+      Snowman_2_with_gift_activate_7: -8589374030285823770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
