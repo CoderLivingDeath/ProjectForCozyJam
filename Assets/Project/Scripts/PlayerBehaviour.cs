@@ -9,10 +9,15 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
     private Rigidbody2D _rigidBody;
 
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _smooth = 0.5f;
 
     [SerializeField] private LayerMask _interactableLayer;
 
+    [SerializeField] private Animator _animator;
+
     private Vector2 _moveVector;
+    private Vector2 _smoothMoveVector;
+    private bool _isRight;
 
     private IEventBus _eventBus;
 
@@ -27,7 +32,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
         float searchRadius = 5f;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
 
-        if(hitColliders.Length == 0) return;
+        if (hitColliders.Length == 0) return;
 
         hitColliders[0].GetComponent<IInteractable>().OnInteract();
     }
@@ -46,10 +51,31 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
 
     private void FixedUpdate()
     {
-        Vector2 offet = _moveVector * Time.deltaTime * _speed;
-        _rigidBody.MovePosition(_rigidBody.position + offet);
+        _animator.SetBool("IsWalk", _moveVector != Vector2.zero);
+        if (_moveVector != Vector2.zero)
+        {
+            if (_moveVector.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 0);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 0);
+            }
+        }
 
-        Interact();
+        if (_moveVector != Vector2.zero)
+        {
+            _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
+
+            Vector2 offet = _smoothMoveVector * Time.deltaTime * _speed;
+            _rigidBody.MovePosition(_rigidBody.position + offet);
+        }
+        else
+        {
+            _smoothMoveVector = Vector2.zero;
+        }
+
     }
 
     private void OnEnable()
