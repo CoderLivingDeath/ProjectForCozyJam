@@ -52,30 +52,31 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
     private void FixedUpdate()
     {
         _animator.SetBool("IsWalk", _moveVector != Vector2.zero);
-        if (_moveVector != Vector2.zero)
-        {
-            if (_moveVector.x > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 0);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 0);
-            }
-        }
 
-        if (_moveVector != Vector2.zero)
-        {
-            _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
-
-            Vector2 offet = _smoothMoveVector * Time.deltaTime * _speed;
-            _rigidBody.MovePosition(_rigidBody.position + offet);
-        }
+        if (_moveVector == Vector2.zero)
+            OnStay();
         else
-        {
-            _smoothMoveVector = Vector2.zero;
-        }
+            OnMove();
+    }
 
+    private void OnMove()
+    {
+        if (_moveVector.x > 0)
+            transform.localScale = new Vector3(1, 1, 0);
+        else
+            transform.localScale = new Vector3(-1, 1, 0);
+
+        _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
+
+        Vector2 offet = _smoothMoveVector * Time.deltaTime * _speed;
+        _rigidBody.MovePosition(_rigidBody.position + offet);
+
+        _smoothMoveVector = Vector2.zero;
+    }
+
+    private void OnStay()
+    {
+        _smoothMoveVector = Vector2.zero;
     }
 
     private void OnEnable()
