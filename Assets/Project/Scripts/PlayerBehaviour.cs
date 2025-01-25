@@ -19,6 +19,8 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
     private Vector2 _smoothMoveVector;
     private bool _isRight;
 
+    public GameObject PousePanel;
+
     private IEventBus _eventBus;
 
     [Inject]
@@ -51,6 +53,9 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
 
     private void FixedUpdate()
     {
+        if (PousePanel.activeSelf)
+            _moveVector = Vector2.zero;
+
         _animator.SetBool("IsWalk", _moveVector != Vector2.zero);
 
         if (_moveVector == Vector2.zero)
