@@ -57,18 +57,21 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     {
         _currentModelType = PlayerModelType.Large;
         _animator.runtimeAnimatorController = _playerModelsConfig.Large;
+        _speed = _playerModelsConfig.LargeSpeed;
     }
 
     private void OnSwitchToSmall()
     {
         _currentModelType = PlayerModelType.Small;
         _animator.runtimeAnimatorController = _playerModelsConfig.Small;
+        _speed = _playerModelsConfig.Smallspeed;
     }
 
     private void OnSwitchToNormal()
     {
         _currentModelType = PlayerModelType.Normal;
         _animator.runtimeAnimatorController = _playerModelsConfig.Normal;
+        _speed = _playerModelsConfig.NoramalSpeed;
     }
 
     private void SwitchPlayerModel(PlayerModelType type)
@@ -167,7 +170,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
         _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
 
-        Vector2 offet = _smoothMoveVector * Time.deltaTime * _speed;
+        Vector2 offet = _smoothMoveVector * Time.fixedDeltaTime * _speed;
         _rigidBody.MovePosition(_rigidBody.position + offet);
 
         _smoothMoveVector = Vector2.zero;

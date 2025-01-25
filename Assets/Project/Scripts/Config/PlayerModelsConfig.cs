@@ -7,4 +7,8 @@ public class PlayerModelsConfig : ScriptableObject
     public AnimatorController Normal;
     public AnimatorController Small;
     public AnimatorController Large;
+
+    public float NoramalSpeed;
+    public float Smallspeed;
+    public float LargeSpeed;
 }
