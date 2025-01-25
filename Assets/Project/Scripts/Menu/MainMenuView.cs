@@ -14,14 +14,25 @@ public class MainMenuView : MonoBehaviour
     public Button ShowSettingButton;
     public Button HideSettingButton;
 
+    public AudioSource OnClickButtonSound;
+
     [Inject] private ISceneLoader sceneLoader;
 
     private void Start()
     {
-        StartGameButton.onClick.AddListener(() => StartGameplay());
+        StartGameButton.onClick.AddListener(StartGameplay);
 
-        ShowSettingButton.onClick.AddListener(() => ShowSettings());
-        HideSettingButton.onClick.AddListener(() => HideSettings());
+        ShowSettingButton.onClick.AddListener(ShowSettings);
+        HideSettingButton.onClick.AddListener(HideSettings);
+
+        StartGameButton.onClick.AddListener(OnButton_Click_Sound);
+        ShowSettingButton.onClick.AddListener(OnButton_Click_Sound);
+        HideSettingButton.onClick.AddListener(OnButton_Click_Sound);
+    }
+
+    private void OnButton_Click_Sound()
+    {
+        OnClickButtonSound.Play();
     }
 
     public void StartGameplay()
