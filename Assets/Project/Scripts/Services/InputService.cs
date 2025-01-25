@@ -34,12 +34,17 @@ public class InputService : IDisposable
     private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 value = context.ReadValue<Vector2>();
-        _eventBus.RaiseEvent<IPlayerMoveEventHandler>(h => h.Handle(value));
+        _eventBus.RaiseEvent<IPlayerMoveEventHandler>(h => h.MoveHandle(value));
     }
 
     private void OnInteract(InputAction.CallbackContext context)
     {
         _eventBus.RaiseEvent<IPlayerInteractEventHanlder>(h => h.InteractHandle());
+    }
+
+    private void OnDropMass(InputAction.CallbackContext context)
+    {
+        _eventBus.RaiseEvent<IPlayerDropMassEventHandler>(h => h.DropMassHandle());
     }
 
     #endregion
@@ -50,6 +55,8 @@ public class InputService : IDisposable
         _actions.Player.Move.canceled += OnMove;
 
         _actions.Player.Interact.performed += OnInteract;
+
+        _actions.Player.DropMass.performed += OnDropMass;
     }
 
     private void UnSubscribe()
@@ -58,6 +65,8 @@ public class InputService : IDisposable
         _actions.Player.Move.canceled -= OnMove;
 
         _actions.Player.Interact.performed -= OnInteract;
+
+        _actions.Player.DropMass.performed -= OnDropMass;
     }
 
     public void Dispose()

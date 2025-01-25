@@ -7,10 +7,13 @@ using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerInteractEventHanlder
+public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerInteractEventHanlder, IPlayerDropMassEventHandler
 {
-
     public PlayerModelType PlayerModelType => _currentModelType;
+
+    public GameObject PousePanel;
+
+    public GameObject SnowballPrefab;
 
     private Rigidbody2D _rigidBody;
 
@@ -24,11 +27,9 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     [SerializeField] private PlayerModelsConfig _playerModelsConfig;
 
     [SerializeField] private PlayerModelType _currentModelType = PlayerModelType.Normal;
+
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
-    private bool _isRight;
-
-    public GameObject PousePanel;
 
     private IInteractable _selectedInteractable;
 
@@ -47,21 +48,26 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
         if (hitColliders.Length == 0) return;
 
-        hitColliders[0].GetComponent<IInteractable>().OnInteract(this.gameObject);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        hitColliders.OrderBy(x => Vector2.Distance(x.transform.position, mousePosition)).First().GetComponent<IInteractable>().OnInteract(this.gameObject);
     }
 
     private void OnSwitchToLarge()
     {
+        _currentModelType = PlayerModelType.Large;
         _animator.runtimeAnimatorController = _playerModelsConfig.Large;
     }
 
     private void OnSwitchToSmall()
     {
+        _currentModelType = PlayerModelType.Small;
         _animator.runtimeAnimatorController = _playerModelsConfig.Small;
     }
 
     private void OnSwitchToNormal()
     {
+        _currentModelType = PlayerModelType.Normal;
         _animator.runtimeAnimatorController = _playerModelsConfig.Normal;
     }
 
@@ -79,6 +85,20 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
                 OnSwitchToLarge();
                 break;
         }
+    }
+    private void HightLightInteractableObjectNearPlayer(float searchRadiusNearPlayer, float serchRadiusNearMouse)
+    {
+        Vector2 mousePositionInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        OutlineHighlightHalper.SelectObjectNearMouseAndPlayer(transform.position, mousePositionInWorldSpace, searchRadiusNearPlayer, serchRadiusNearMouse, _interactableLayer, this.gameObject);
+    }
+
+    private void DropMass()
+    {
+        if (_currentModelType == PlayerModelType.Small) return;
+
+        Instantiate(SnowballPrefab, transform.position, Quaternion.identity);
+        DowngradePlayerModelState();
     }
 
     public void RisePlayerModelState()
@@ -101,20 +121,19 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         }
     }
 
-    public void HightLightInteractableObjectNearPlayer(float searchRadiusNearPlayer, float serchRadiusNearMouse)
-    {
-        // багуется сука
-        OutlineHighlightHalper.SelectObjectNearMouseAndPlayer(transform.position, Input.mousePosition, searchRadiusNearPlayer, serchRadiusNearMouse, _interactableLayer, this.gameObject);
-    }
-
     public void InteractHandle()
     {
         Interact();
     }
 
-    public void Handle(Vector2 direction)
+    public void MoveHandle(Vector2 direction)
     {
         _moveVector = direction;
+    }
+
+    public void DropMassHandle()
+    {
+        DropMass();
     }
 
     #region Unity Methods

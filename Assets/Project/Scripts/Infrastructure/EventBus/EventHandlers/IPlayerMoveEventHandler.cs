@@ -3,5 +3,5 @@ using UnityEngine;
 
 internal interface IPlayerMoveEventHandler : IGlobalSubscriber
 {
-    public void Handle(Vector2 direction);
+    public void MoveHandle(Vector2 direction);
 }

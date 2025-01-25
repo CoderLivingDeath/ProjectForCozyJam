@@ -18,11 +18,10 @@ namespace Assets.Project.Scripts
             current = newObject;
             StartHighlightSelectedObject(sender);
         }
-        private static GameObject[] GetGameObjectsNearMouse(float radius, LayerMask mask)
+        private static GameObject[] GetGameObjectsNearMouse(float radius, Vector2 mousePosition, LayerMask mask)
         {
-            Vector2 mousePositopn = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            Collider2D[] hitCollidersNearMouse = Physics2D.OverlapCircleAll(mousePositopn, radius, mask);
+            Collider2D[] hitCollidersNearMouse = Physics2D.OverlapCircleAll(mousePosition, radius, mask);
 
             return hitCollidersNearMouse.Select(x => x.gameObject).ToArray();
         }
@@ -34,9 +33,9 @@ namespace Assets.Project.Scripts
             return hitCollidersNearPlayer.Select(x => x.gameObject).ToArray();
         }
 
-        private static GameObject[] GetGameObjectsNearMouseAndPlayer(float radiusNearMouse, float radiusNearPlayer, Vector2 playerPosition, LayerMask mask)
+        private static GameObject[] GetGameObjectsNearMouseAndPlayer(float radiusNearMouse, float radiusNearPlayer, Vector2 playerPosition,Vector2 mousePosition, LayerMask mask)
         {
-            var nearMouse = GetGameObjectsNearMouse(radiusNearMouse, mask);
+            var nearMouse = GetGameObjectsNearMouse(radiusNearMouse, mousePosition, mask);
             var nearPlayer = GetGameObjectsNearPlayer(radiusNearPlayer, playerPosition, mask);
 
             return nearMouse.Intersect(nearPlayer).ToArray();
@@ -48,12 +47,12 @@ namespace Assets.Project.Scripts
         }
         private static GameObject[] FilterByDistane(GameObject[] objects, Vector2 position)
         {
-            return objects.OrderByDescending(x => Vector2.Distance(x.transform.position, position)).ToArray();
+            return objects.OrderBy(x => Vector2.Distance(x.transform.position, position)).ToArray();
         }
 
         public static void SelectObjectNearMouseAndPlayer(Vector2 playerPosition, Vector2 mousePosition, float searchRadiusNearPlayer, float searchRadiusNearMouse, LayerMask mask, GameObject sender)
         {
-            var nearPlayerAndMouse = GetGameObjectsNearMouseAndPlayer(searchRadiusNearMouse, searchRadiusNearPlayer, playerPosition, mask);
+            var nearPlayerAndMouse = GetGameObjectsNearMouseAndPlayer(searchRadiusNearMouse, searchRadiusNearPlayer, playerPosition, mousePosition, mask);
             if (nearPlayerAndMouse.Count() < 1)
             {
                 StopHighlightSelectedObject(sender);
