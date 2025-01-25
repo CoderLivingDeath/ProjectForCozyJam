@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: fbe0cc0a9cae556478ec0b84d144b5f9
+guid: 8634c42eb2c1ea94688bf0f00b3f2d14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4222030482185194531
-    second: Snowman_3_without_gift_attack_0
-  - first:
-      213: -1801428228206582926
-    second: Snowman_3_without_gift_attack_1
-  - first:
-      213: -2872461968147678702
-    second: Snowman_3_without_gift_attack_2
-  - first:
-      213: -5575688468838821500
-    second: Snowman_3_without_gift_attack_3
+      213: -4475890609340141181
+    second: Snowball_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -83,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureFormat: 4
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snowman_3_without_gift_attack_0
+      name: Snowball_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33
-        height: 39
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,74 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd3fa7e45a55865c0800000000000000
-      internalID: -4222030482185194531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_3_without_gift_attack_1
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 55
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 273a261229a0007e0800000000000000
-      internalID: -1801428228206582926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_3_without_gift_attack_2
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 0
-        width: 43
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21afcb51f07f228d0800000000000000
-      internalID: -2872461968147678702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_3_without_gift_attack_3
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 34
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 481de9cf0ec2f92b0800000000000000
-      internalID: -5575688468838821500
+      spriteID: 38136c0843172e1c0800000000000000
+      internalID: -4475890609340141181
       vertices: []
       indices: 
       edges: []
@@ -236,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Snowman_3_without_gift_attack_0: -4222030482185194531
-      Snowman_3_without_gift_attack_1: -1801428228206582926
-      Snowman_3_without_gift_attack_2: -2872461968147678702
-      Snowman_3_without_gift_attack_3: -5575688468838821500
+      Snowball_0: -4475890609340141181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

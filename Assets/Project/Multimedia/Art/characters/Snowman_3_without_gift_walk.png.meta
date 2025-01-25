@@ -335,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Snowman_3_without_gift_walk_0: -1560805233138290581
+      Snowman_3_without_gift_walk_1: -4955523455505902184
+      Snowman_3_without_gift_walk_2: -2646060728296136263
+      Snowman_3_without_gift_walk_3: -4023343359113267708
+      Snowman_3_without_gift_walk_4: -7133827475209807616
+      Snowman_3_without_gift_walk_5: -8664786066359735450
+      Snowman_3_without_gift_walk_6: -8073701786661437698
+      Snowman_3_without_gift_walk_7: 1248194877509767108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

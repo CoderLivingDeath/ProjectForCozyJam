@@ -1,4 +1,10 @@
-﻿public interface IInteractable
+﻿using UnityEngine;
+
+public interface IInteractable
 {
-    void OnInteract();
+    bool IsHifglithing { get; }
+
+    void OnInteract(GameObject sender);
+    void StartHigthLith(GameObject sender);
+    void StopHigthLith(GameObject sende);
 }

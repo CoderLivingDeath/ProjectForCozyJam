@@ -1,11 +1,15 @@
 using Assets.Project.Scripts.Infrastructure.EventBus;
+using Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers;
 using System;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
+public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerInteractEventHanlder
 {
+
+    public PlayerModelType PlayerModelType => _currentModelType;
 
     private Rigidbody2D _rigidBody;
 
@@ -18,11 +22,14 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
 
     [SerializeField] private PlayerModelsConfig _playerModelsConfig;
 
+    private PlayerModelType _currentModelType;
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
     private bool _isRight;
 
     public GameObject PousePanel;
+
+    private IInteractable _selectedInteractable;
 
     private IEventBus _eventBus;
 
@@ -39,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
 
         if (hitColliders.Length == 0) return;
 
-        hitColliders[0].GetComponent<IInteractable>().OnInteract();
+        hitColliders[0].GetComponent<IInteractable>().OnInteract(this.gameObject);
     }
     private void OnSwitchToLarge()
     {
@@ -72,6 +79,67 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
         }
     }
 
+    public void RisePlayerModelState()
+    {
+        switch (_currentModelType)
+        {
+            case PlayerModelType.Normal: SwitchPlayerModel(PlayerModelType.Large); break;
+            case PlayerModelType.Small: SwitchPlayerModel(PlayerModelType.Normal); break;
+            case PlayerModelType.Large: break;
+        }
+    }
+
+    public void DowngradePlayerModelState()
+    {
+        switch (_currentModelType)
+        {
+            case PlayerModelType.Normal: SwitchPlayerModel(PlayerModelType.Small); break;
+            case PlayerModelType.Small: break;
+            case PlayerModelType.Large: SwitchPlayerModel(PlayerModelType.Normal); break;
+        }
+    }
+
+    public void HightLightInteractableObjectNearPlayer()
+    {
+        Vector2 mousePositopn = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float mouseSearchRadiud = 5f;
+        Collider2D[] hitCollidersNearMouse = Physics2D.OverlapCircleAll(mousePositopn, mouseSearchRadiud, _interactableLayer);
+
+        float searchRadius = 5f;
+        Collider2D[] hitCollidersNearPlayer = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
+
+        var interset = hitCollidersNearMouse.Intersect(hitCollidersNearPlayer);
+
+        if(interset.Count() == 0)
+        {
+            _selectedInteractable?.StopHigthLith(this.gameObject);
+            _selectedInteractable = null;
+
+            return;
+        }
+
+        var filtered = interset.OrderBy(x => Vector2.Distance((Vector2)x.transform.position, mousePositopn));
+        var selectedObject = filtered.First().gameObject;
+        var interactable = selectedObject.GetComponent<IInteractable>();
+
+
+        if(interactable != _selectedInteractable)
+        {
+            _selectedInteractable?.StopHigthLith(this.gameObject);
+            _selectedInteractable = interactable;
+        }
+
+        if (!interactable.IsHifglithing)
+        {
+            interactable?.StartHigthLith(this.gameObject);
+        }
+    }
+
+    public void Handle()
+    {
+        throw new NotImplementedException();
+    }
+
     public void Handle(Vector2 direction)
     {
         _moveVector = direction;
@@ -95,6 +163,8 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
             OnStay();
         else
             OnMove();
+
+        HightLightInteractableObjectNearPlayer();
     }
 
     private void OnMove()

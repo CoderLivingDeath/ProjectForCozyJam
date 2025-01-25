@@ -210,7 +210,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Snowman_2_without_gift_idle_0: 2241203217270649460
+      Snowman_2_without_gift_idle_1: 7951529511174767398
+      Snowman_2_without_gift_idle_2: -4013151057844073369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

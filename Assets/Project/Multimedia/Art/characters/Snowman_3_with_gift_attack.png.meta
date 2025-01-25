@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Snowman_3_with_gift_attack_0: -3528439981114977403
+      Snowman_3_with_gift_attack_1: -1498371127266515762
+      Snowman_3_with_gift_attack_2: 5921801491955843950
+      Snowman_3_with_gift_attack_3: -7429884683272805810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
