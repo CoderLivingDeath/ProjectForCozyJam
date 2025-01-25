@@ -70,7 +70,7 @@ Material:
     m_Floats:
     - CORNERS: 1
     - _EnableExternalAlpha: 0
-    - _OutlineThickness: 0.85
+    - _OutlineThickness: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Thickness: 0.11
