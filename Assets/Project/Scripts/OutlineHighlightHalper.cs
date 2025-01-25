@@ -58,7 +58,7 @@ namespace Assets.Project.Scripts
             {
                 if (current != null)
                 {
-                    StopHighlightSelectedObject();
+                    StopHighlightSelectedObject(sender);
                 }
                 return;
             }
