@@ -8,6 +8,6 @@ namespace Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers
 {
     internal interface IPlayerInteractEventHanlder
     {
-        void Handle();
+        void InteractHandle();
     }
 }

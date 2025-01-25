@@ -102,13 +102,18 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     public void HightLightInteractableObjectNearPlayer()
     {
         Vector2 mousePositopn = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float mouseSearchRadiud = 5f;
+        float mouseSearchRadiud = 2f;
         Collider2D[] hitCollidersNearMouse = Physics2D.OverlapCircleAll(mousePositopn, mouseSearchRadiud, _interactableLayer);
 
         float searchRadius = 5f;
         Collider2D[] hitCollidersNearPlayer = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
 
         var interset = hitCollidersNearMouse.Intersect(hitCollidersNearPlayer);
+
+        foreach(var item in interset)
+        {
+            Debug.Log(item.gameObject.name);
+        }
 
         if(interset.Count() == 0)
         {
@@ -135,7 +140,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         }
     }
 
-    public void Handle()
+    public void InteractHandle()
     {
         throw new NotImplementedException();
     }
