@@ -56,10 +56,7 @@ namespace Assets.Project.Scripts
             var nearPlayerAndMouse = GetGameObjectsNearMouseAndPlayer(searchRadiusNearMouse, searchRadiusNearPlayer, playerPosition, mask);
             if (nearPlayerAndMouse.Count() < 1)
             {
-                if (current != null)
-                {
-                    StopHighlightSelectedObject(sender);
-                }
+                StopHighlightSelectedObject(sender);
                 return;
             }
 
