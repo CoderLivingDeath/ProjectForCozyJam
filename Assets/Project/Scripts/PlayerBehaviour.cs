@@ -1,4 +1,5 @@
 using Assets.Project.Scripts.Infrastructure.EventBus;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +15,8 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
     [SerializeField] private LayerMask _interactableLayer;
 
     [SerializeField] private Animator _animator;
+
+    [SerializeField] private PlayerModelsConfig _playerModelsConfig;
 
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
@@ -37,6 +40,36 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
         if (hitColliders.Length == 0) return;
 
         hitColliders[0].GetComponent<IInteractable>().OnInteract();
+    }
+    private void OnSwitchToLarge()
+    {
+        _animator.runtimeAnimatorController = _playerModelsConfig.Large;
+    }
+
+    private void OnSwitchToSmall()
+    {
+        _animator.runtimeAnimatorController = _playerModelsConfig.Small;
+    }
+
+    private void OnSwitchToNormal()
+    {
+        _animator.runtimeAnimatorController = _playerModelsConfig.Normal;
+    }
+
+    private void SwitchPlayerModel(PlayerModelType type)
+    {
+        switch (type)
+        {
+            case PlayerModelType.Normal:
+                OnSwitchToNormal();
+                break;
+            case PlayerModelType.Small:
+                OnSwitchToSmall();
+                break;
+            case PlayerModelType.Large:
+                OnSwitchToLarge();
+                break;
+        }
     }
 
     public void Handle(Vector2 direction)
@@ -95,4 +128,9 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler
     }
 
     #endregion
+}
+
+public enum PlayerModelType
+{
+    Normal, Small, Large
 }
