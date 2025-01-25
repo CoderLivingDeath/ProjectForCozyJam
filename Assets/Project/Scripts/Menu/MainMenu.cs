@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class MainMenu : MonoBehaviour
 {
+    private const int START_SCENE_ID = 1;
+
     public GameObject MainArea;
     public GameObject OptionsArea;
     public AudioSource ClickSound;
 
+    [Inject] ISceneLoader sceneLoader;
+
     public void Play()
     {
-        SceneManager.LoadScene("Gameplay");
+        sceneLoader.LoadScene(START_SCENE_ID);
         ClickSound.Play();
     }
     public void ShowOptions()
