@@ -1,3 +1,4 @@
+using Assets.Project.Scripts;
 using Assets.Project.Scripts.Infrastructure.EventBus;
 using Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers;
 using System;
@@ -22,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
     [SerializeField] private PlayerModelsConfig _playerModelsConfig;
 
-    private PlayerModelType _currentModelType;
+    [SerializeField] private PlayerModelType _currentModelType = PlayerModelType.Normal;
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
     private bool _isRight;
@@ -48,6 +49,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
         hitColliders[0].GetComponent<IInteractable>().OnInteract(this.gameObject);
     }
+
     private void OnSwitchToLarge()
     {
         _animator.runtimeAnimatorController = _playerModelsConfig.Large;
@@ -99,50 +101,15 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         }
     }
 
-    public void HightLightInteractableObjectNearPlayer()
+    public void HightLightInteractableObjectNearPlayer(float searchRadiusNearPlayer, float serchRadiusNearMouse)
     {
-        Vector2 mousePositopn = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float mouseSearchRadiud = 2f;
-        Collider2D[] hitCollidersNearMouse = Physics2D.OverlapCircleAll(mousePositopn, mouseSearchRadiud, _interactableLayer);
-
-        float searchRadius = 5f;
-        Collider2D[] hitCollidersNearPlayer = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
-
-        var interset = hitCollidersNearMouse.Intersect(hitCollidersNearPlayer);
-
-        foreach(var item in interset)
-        {
-            Debug.Log(item.gameObject.name);
-        }
-
-        if(interset.Count() == 0)
-        {
-            _selectedInteractable?.StopHigthLith(this.gameObject);
-            _selectedInteractable = null;
-
-            return;
-        }
-
-        var filtered = interset.OrderBy(x => Vector2.Distance((Vector2)x.transform.position, mousePositopn));
-        var selectedObject = filtered.First().gameObject;
-        var interactable = selectedObject.GetComponent<IInteractable>();
-
-
-        if(interactable != _selectedInteractable)
-        {
-            _selectedInteractable?.StopHigthLith(this.gameObject);
-            _selectedInteractable = interactable;
-        }
-
-        if (!interactable.IsHifglithing)
-        {
-            interactable?.StartHigthLith(this.gameObject);
-        }
+        // багуется сука
+        OutlineHighlightHalper.SelectObjectNearMouseAndPlayer(transform.position, Input.mousePosition, searchRadiusNearPlayer, serchRadiusNearMouse, _interactableLayer, this.gameObject);
     }
 
     public void InteractHandle()
     {
-        throw new NotImplementedException();
+        Interact();
     }
 
     public void Handle(Vector2 direction)
@@ -169,7 +136,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         else
             OnMove();
 
-        HightLightInteractableObjectNearPlayer();
+        HightLightInteractableObjectNearPlayer(5f, 2f);
     }
 
     private void OnMove()

@@ -1,4 +1,5 @@
 using Assets.Project.Scripts.Infrastructure.EventBus;
+using Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -36,18 +37,27 @@ public class InputService : IDisposable
         _eventBus.RaiseEvent<IPlayerMoveEventHandler>(h => h.Handle(value));
     }
 
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        _eventBus.RaiseEvent<IPlayerInteractEventHanlder>(h => h.InteractHandle());
+    }
+
     #endregion
 
     private void Subscribe()
     {
         _actions.Player.Move.performed += OnMove;
         _actions.Player.Move.canceled += OnMove;
+
+        _actions.Player.Interact.performed += OnInteract;
     }
 
     private void UnSubscribe()
     {
         _actions.Player.Move.performed -= OnMove;
         _actions.Player.Move.canceled -= OnMove;
+
+        _actions.Player.Interact.performed -= OnInteract;
     }
 
     public void Dispose()

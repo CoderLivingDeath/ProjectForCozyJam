@@ -31,15 +31,27 @@ public class SnowballBehaviour : MonoBehaviour, IInteractable
         return player.PlayerModelType != PlayerModelType.Large;
     }
 
-    public void StartHigthLith(GameObject sender)
+    public void StartHighlight(GameObject sender)
     {
-        _spriteRenderer.material = OutlineMaterial;
+        if(_spriteRenderer == null) return;
         _isHightLithing = true;
     }
 
-    public void StopHigthLith(GameObject sende)
+    public void StopHighLight(GameObject sender)
     {
-        _spriteRenderer.material = StandartMaterial;
+        if (_spriteRenderer == null) return;
         _isHightLithing = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if(_isHightLithing)
+        {
+            _spriteRenderer.material = OutlineMaterial;
+        }
+        else
+        {
+            _spriteRenderer.material = StandartMaterial;
+        }
     }
 }

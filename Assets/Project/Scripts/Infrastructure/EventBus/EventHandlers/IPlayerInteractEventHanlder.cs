@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers
 {
-    internal interface IPlayerInteractEventHanlder
+    internal interface IPlayerInteractEventHanlder : IGlobalSubscriber
     {
         void InteractHandle();
     }

@@ -26,13 +26,13 @@ public class LeverBehaviour : MonoBehaviour, IInteractable
         Switch();
     }
 
-    public void StartHigthLith(GameObject sender)
+    public void StartHighlight(GameObject sender)
     {
         _spriteRenderer.material = OutlineMaterial;
         _isHightLithing = true;
     }
 
-    public void StopHigthLith(GameObject sende)
+    public void StopHighLight(GameObject sender)
     {
         _spriteRenderer.material = StandartMaterial;
         _isHightLithing = false;

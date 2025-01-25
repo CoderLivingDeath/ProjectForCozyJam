@@ -1,10 +1,9 @@
-﻿using UnityEngine;
+﻿using Assets.Project.Scripts;
+using UnityEngine;
 
-public interface IInteractable
+public interface IInteractable : IHighlightable
 {
     bool IsHifglithing { get; }
 
     void OnInteract(GameObject sender);
-    void StartHigthLith(GameObject sender);
-    void StopHigthLith(GameObject sende);
 }
