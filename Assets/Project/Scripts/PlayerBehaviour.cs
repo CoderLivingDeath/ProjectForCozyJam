@@ -1,7 +1,6 @@
 using Assets.Project.Scripts;
 using Assets.Project.Scripts.Infrastructure.EventBus;
 using Assets.Project.Scripts.Infrastructure.EventBus.EventHandlers;
-using System;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -12,8 +11,6 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     public PlayerModelType PlayerModelType => _currentModelType;
 
     public bool GiftSpizhen = false;
-
-    public GameObject PousePanel;
 
     public GameObject SnowballPrefab;
 

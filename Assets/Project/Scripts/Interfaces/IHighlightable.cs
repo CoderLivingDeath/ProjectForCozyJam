@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Assets.Project.Scripts
+public interface IHighlightable
 {
-    public interface IHighlightable
-    {
-        void StartHighlight(GameObject sender);
-        void StopHighLight(GameObject sender);
-    }
+    void StartHighlight(GameObject sender);
+    void StopHighLight(GameObject sender);
 }
