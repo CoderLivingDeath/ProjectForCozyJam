@@ -39,8 +39,16 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         _eventBus = eventBus;
     }
 
+    private void PlayInteractAnimation()
+    {
+        _animator.SetBool("IsInteract", true);
+    }
+
     private void Interact()
     {
+
+        PlayInteractAnimation();
+
         float searchRadius = 2f;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
 
