@@ -10,7 +10,7 @@ public class SnowballBehaviour : MonoBehaviour, IInteractable
     private SpriteRenderer _spriteRenderer;
 
     private bool _isHightLithing;
-    public bool IsHifglithing => _isHightLithing;
+    public bool IsHighlithing => _isHightLithing;
 
     public void OnInteract(GameObject sender)
     {

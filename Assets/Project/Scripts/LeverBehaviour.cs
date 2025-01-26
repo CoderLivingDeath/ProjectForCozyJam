@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LeverBehaviour : MonoBehaviour, IInteractable
 {
-    public bool IsHifglithing => _isHightLithing;
+    public bool IsHighlithing => _isHightLithing;
 
     public SpriteRenderer _spriteRenderer;
 
@@ -15,10 +16,15 @@ public class LeverBehaviour : MonoBehaviour, IInteractable
     [SerializeField] private Animator _animator;
     private bool _isHightLithing;
 
+    public UnityEvent<bool> OnSwitch;
+
     public void Switch()
     {
-        Debug.Log(IsActive);
-        if (CanSwitch) _animator.SetBool("IsActive", IsActive = !IsActive);
+        if (CanSwitch)
+        {
+            _animator.SetBool("IsActive", IsActive = !IsActive);
+            OnSwitch.Invoke(_animator);
+        }
     }
 
     public void OnInteract(GameObject sender)

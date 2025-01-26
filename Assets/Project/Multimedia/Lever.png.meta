@@ -132,12 +132,12 @@ TextureImporter:
       name: Lever_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 325
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 62
+        width: 182
+        height: 204
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: Lever_1
       rect:
         serializedVersion: 2
-        x: 325
-        y: 0
-        width: 325
-        height: 326
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 377
+        y: 23
+        width: 178
+        height: 280
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

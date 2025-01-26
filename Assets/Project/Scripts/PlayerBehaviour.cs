@@ -31,8 +31,6 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
 
-    private IInteractable _selectedInteractable;
-
     private IEventBus _eventBus;
 
     [Inject]
@@ -43,7 +41,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
     private void Interact()
     {
-        float searchRadius = 5f;
+        float searchRadius = 2f;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, searchRadius, _interactableLayer);
 
         if (hitColliders.Length == 0) return;
@@ -104,6 +102,26 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         DowngradePlayerModelState();
     }
 
+    private void OnMove()
+    {
+        if (_moveVector.x > 0)
+            transform.localScale = new Vector3(1, 1, 0);
+        else
+            transform.localScale = new Vector3(-1, 1, 0);
+
+        _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
+
+        Vector2 offet = _smoothMoveVector * Time.fixedDeltaTime * _speed;
+        _rigidBody.MovePosition(_rigidBody.position + offet);
+
+        _smoothMoveVector = Vector2.zero;
+    }
+
+    private void OnStay()
+    {
+        _smoothMoveVector = Vector2.zero;
+    }
+
     public void RisePlayerModelState()
     {
         switch (_currentModelType)
@@ -144,6 +162,8 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+
+        SwitchPlayerModel(_playerModelsConfig.StartPlayerModelType);
     }
 
     private void FixedUpdate()
@@ -158,28 +178,10 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         else
             OnMove();
 
-        HightLightInteractableObjectNearPlayer(5f, 2f);
+        HightLightInteractableObjectNearPlayer(3f, 1f);
     }
 
-    private void OnMove()
-    {
-        if (_moveVector.x > 0)
-            transform.localScale = new Vector3(1, 1, 0);
-        else
-            transform.localScale = new Vector3(-1, 1, 0);
-
-        _smoothMoveVector = Vector2.Lerp(_smoothMoveVector, _moveVector.normalized, _smooth).normalized;
-
-        Vector2 offet = _smoothMoveVector * Time.fixedDeltaTime * _speed;
-        _rigidBody.MovePosition(_rigidBody.position + offet);
-
-        _smoothMoveVector = Vector2.zero;
-    }
-
-    private void OnStay()
-    {
-        _smoothMoveVector = Vector2.zero;
-    }
+    
 
     private void OnEnable()
     {

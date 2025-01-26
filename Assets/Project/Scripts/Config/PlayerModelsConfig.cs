@@ -8,6 +8,8 @@ public class PlayerModelsConfig : ScriptableObject
     public AnimatorController Small;
     public AnimatorController Large;
 
+    public PlayerModelType StartPlayerModelType;
+
     public float NoramalSpeed;
     public float Smallspeed;
     public float LargeSpeed;

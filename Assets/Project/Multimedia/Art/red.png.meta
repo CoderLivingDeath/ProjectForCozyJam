@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 3d6ea29cbf3e7274993432164e0ce443
+guid: 1d7d108be1072db4780ffc93a126e688
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -11374633103348057
-    second: Snowman_2_with_gift_idle_0
-  - first:
-      213: 5560477113535680951
-    second: Snowman_2_with_gift_idle_1
-  - first:
-      213: 1418679349960174810
-    second: Snowman_2_with_gift_idle_2
+      213: 8166710274925509176
+    second: red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,9 +72,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snowman_2_with_gift_idle_0
+      name: red_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7aeac6ad4d697dff0800000000000000
-      internalID: -11374633103348057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_2_with_gift_idle_1
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 0
-        width: 19
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b1dbfd5978ca2d40800000000000000
-      internalID: 5560477113535680951
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_2_with_gift_idle_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 19
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: adcee803a5920b310800000000000000
-      internalID: 1418679349960174810
+      spriteID: 83ab778d9bbf55170800000000000000
+      internalID: 8166710274925509176
       vertices: []
       indices: 
       edges: []
@@ -201,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 76115a8e415466d40bd72769ebce5a70
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Snowman_2_with_gift_idle_0: -11374633103348057
-      Snowman_2_with_gift_idle_1: 5560477113535680951
-      Snowman_2_with_gift_idle_2: 1418679349960174810
+      red_0: 8166710274925509176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

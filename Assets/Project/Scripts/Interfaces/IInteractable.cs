@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IInteractable : IHighlightable
 {
-    bool IsHifglithing { get; }
+    bool IsHighlithing { get; }
 
     void OnInteract(GameObject sender);
 }
