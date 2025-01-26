@@ -1,31 +1,10 @@
 fileFormatVersion: 2
-guid: 4b3478e1a847dc1479b1760302af51a5
+guid: e0079c887e1a7fd4996cdb2480018d0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5290197420872626700
-    second: Snowman_2_with_gift_activate_0
-  - first:
-      213: -2134792390597142324
-    second: Snowman_2_with_gift_activate_1
-  - first:
-      213: -1323842768576481797
-    second: Snowman_2_with_gift_activate_2
-  - first:
-      213: 1003726158166032513
-    second: Snowman_2_with_gift_activate_3
-  - first:
-      213: 2007106103676707980
-    second: Snowman_2_with_gift_activate_4
-  - first:
-      213: 6152473351016777230
-    second: Snowman_2_with_gift_activate_5
-  - first:
-      213: -9178588338580983241
-    second: Snowman_2_with_gift_activate_6
-  - first:
-      213: -8589374030285823770
-    second: Snowman_2_with_gift_activate_7
+      213: 5213229242370633579
+    second: Door_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -147,89 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snowman_2_with_gift_activate_0
+      name: Door_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 22
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c02fcce868e8a6940800000000000000
-      internalID: 5290197420872626700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_2_with_gift_activate_1
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 0
-        width: 22
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc81041a1a1bf52e0800000000000000
-      internalID: -2134792390597142324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_2_with_gift_activate_2
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 0
-        width: 22
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf577881404c0ade0800000000000000
-      internalID: -1323842768576481797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snowman_2_with_gift_activate_3
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 0
-        width: 22
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18001457f93fded00800000000000000
-      internalID: 1003726158166032513
+      spriteID: b6f2e24006c195840800000000000000
+      internalID: 5213229242370633579
       vertices: []
       indices: 
       edges: []
@@ -238,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 80e9962d826d8f44f942c05e5052c91b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -247,11 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Snowman_2_with_gift_activate_0: 5290197420872626700
-      Snowman_2_with_gift_activate_1: -2134792390597142324
-      Snowman_2_with_gift_activate_2: -1323842768576481797
-      Snowman_2_with_gift_activate_3: 1003726158166032513
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
