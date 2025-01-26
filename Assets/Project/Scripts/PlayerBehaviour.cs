@@ -28,6 +28,9 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
     [SerializeField] private PlayerModelType _currentModelType = PlayerModelType.Normal;
 
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _walkSounds;
+
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
 
@@ -110,6 +113,16 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         DowngradePlayerModelState();
     }
 
+    private void PlayWalkSound()
+    {
+        _audioSource.Play();
+    }
+
+    private void StopWalkSound()
+    {
+        _audioSource.Stop();
+    }
+
     private void OnMove()
     {
         if (_moveVector.x > 0)
@@ -123,6 +136,15 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         _rigidBody.MovePosition(_rigidBody.position + offet);
 
         _smoothMoveVector = Vector2.zero;
+
+        if (_moveVector != Vector2.zero)
+        {
+            StopWalkSound();
+        }
+        else
+        {
+            PlayWalkSound();
+        }
     }
 
     private void OnStay()
