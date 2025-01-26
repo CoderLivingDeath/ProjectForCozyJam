@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TilesetFloor_0
+  m_Name: rooms_walls_49
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1842926534897299343, guid: ac67c6106ee575d489ca1500688d8441, type: 3}
+  m_Sprite: {fileID: -617997528, guid: b97c3e37356cfdf4ca7a63dceae20787, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
