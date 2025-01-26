@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: ab7cc2036b5d0f14d8f3fa2f61abf387
+guid: 1962838a06b25a541807b8f36d9e73b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2381598861578139649
-    second: Winters_Gift_0
+      213: -1419684024012872438
+    second: RpgViewbBasics_House_0
+  - first:
+      213: -8914033330112440897
+    second: RpgViewbBasics_House_1
+  - first:
+      213: 803654812465145969
+    second: RpgViewbBasics_House_2
+  - first:
+      213: 849734507314620378
+    second: RpgViewbBasics_House_3
+  - first:
+      213: -1217128952476901324
+    second: RpgViewbBasics_House_4
+  - first:
+      213: 6037030324894515350
+    second: RpgViewbBasics_House_5
+  - first:
+      213: -2526540405649357700
+    second: RpgViewbBasics_House_6
+  - first:
+      213: 7232566687137936332
+    second: RpgViewbBasics_House_7
+  - first:
+      213: -8449365601439333301
+    second: RpgViewbBasics_House_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 160
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +98,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -85,19 +109,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -122,27 +133,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Winters_Gift_0
+      name: RpgViewbBasics_House_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 49
-        height: 30
+        x: 1829
+        y: 3500
+        width: 1462
+        height: 1221
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff70922247cd2fed0800000000000000
-      internalID: -2381598861578139649
+      spriteID: a056a67e6e44c4ce0800000000000000
+      internalID: -1419684024012872438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RpgViewbBasics_House_2
+      rect:
+        serializedVersion: 2
+        x: 4409
+        y: 3689
+        width: 1462
+        height: 1322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178a4034bc7272b00800000000000000
+      internalID: 803654812465145969
       vertices: []
       indices: 
       edges: []
@@ -151,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fef9faafb8194c34eaca8b687f86fff9
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +207,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Winters_Gift_0: -2381598861578139649
+      RpgViewbBasics_House_0: -1419684024012872438
+      RpgViewbBasics_House_1: -8914033330112440897
+      RpgViewbBasics_House_2: 803654812465145969
+      RpgViewbBasics_House_3: 849734507314620378
+      RpgViewbBasics_House_4: -1217128952476901324
+      RpgViewbBasics_House_5: 6037030324894515350
+      RpgViewbBasics_House_6: -2526540405649357700
+      RpgViewbBasics_House_7: 7232566687137936332
+      RpgViewbBasics_House_8: -8449365601439333301
+      RpgViewbBasics_House_9: 1256504168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

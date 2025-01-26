@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: ab7cc2036b5d0f14d8f3fa2f61abf387
+guid: 27f3308f1c614834db353c51c2e20a9e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2381598861578139649
-    second: Winters_Gift_0
+      213: -5391499930902814504
+    second: House1_0
+  - first:
+      213: -2606717725405320684
+    second: House1_1
+  - first:
+      213: 4718711243645691000
+    second: House1_2
+  - first:
+      213: -1961827189265763821
+    second: House1_3
+  - first:
+      213: -8221600526570170616
+    second: House1_4
+  - first:
+      213: 6053827796709592408
+    second: House1_5
+  - first:
+      213: 9188191320948358892
+    second: House1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -74,7 +92,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -85,19 +103,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -122,27 +127,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Winters_Gift_0
+      name: House1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 49
-        height: 30
+        width: 1460
+        height: 1370
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff70922247cd2fed0800000000000000
-      internalID: -2381598861578139649
+      spriteID: 8d0aef3d06b8d25b0800000000000000
+      internalID: -5391499930902814504
       vertices: []
       indices: 
       edges: []
@@ -151,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 268c48a04d5aa1f49ba394a6cbefc3bc
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +179,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Winters_Gift_0: -2381598861578139649
+      House1_0: -5391499930902814504
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
