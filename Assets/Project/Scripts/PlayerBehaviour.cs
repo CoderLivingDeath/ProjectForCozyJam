@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 {
     public PlayerModelType PlayerModelType => _currentModelType;
 
+    public bool GiftSpizhen = false;
+
     public GameObject PousePanel;
 
     public GameObject SnowballPrefab;
@@ -28,11 +30,13 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
     [SerializeField] private PlayerModelType _currentModelType = PlayerModelType.Normal;
 
-    [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip _walkSounds;
+    [SerializeField] private AudioSource _audioWalk;
+    [SerializeField] private AudioSource _audioTranformation;
 
     private Vector2 _moveVector;
     private Vector2 _smoothMoveVector;
+
+    private bool _walkSoundIsPlay = false;
 
     private IEventBus _eventBus;
 
@@ -97,6 +101,7 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
                 OnSwitchToLarge();
                 break;
         }
+        _audioTranformation.Play();
     }
     private void HightLightInteractableObjectNearPlayer(float searchRadiusNearPlayer, float serchRadiusNearMouse)
     {
@@ -115,12 +120,21 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
 
     private void PlayWalkSound()
     {
-        _audioSource.Play();
+        if (!_walkSoundIsPlay)
+        {
+            _walkSoundIsPlay = true;
+            _audioWalk.Play();
+        }
+
     }
 
     private void StopWalkSound()
     {
-        _audioSource.Stop();
+        if (_walkSoundIsPlay)
+        {
+            _walkSoundIsPlay = false;
+            _audioWalk.Stop();
+        }
     }
 
     private void OnMove()
@@ -136,15 +150,6 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         _rigidBody.MovePosition(_rigidBody.position + offet);
 
         _smoothMoveVector = Vector2.zero;
-
-        if (_moveVector != Vector2.zero)
-        {
-            StopWalkSound();
-        }
-        else
-        {
-            PlayWalkSound();
-        }
     }
 
     private void OnStay()
@@ -201,14 +206,20 @@ public class PlayerBehaviour : MonoBehaviour, IPlayerMoveEventHandler, IPlayerIn
         _animator.SetBool("IsWalk", _moveVector != Vector2.zero);
 
         if (_moveVector == Vector2.zero)
+        {
+            StopWalkSound();
             OnStay();
+        }
         else
+        {
+            PlayWalkSound();
             OnMove();
+        }
 
         HightLightInteractableObjectNearPlayer(3f, 1f);
     }
 
-    
+
 
     private void OnEnable()
     {

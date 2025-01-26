@@ -14,6 +14,8 @@ public class LeverBehaviour : MonoBehaviour, IInteractable
     private bool CanSwitch = true;
 
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioSource _audioSource;
+
     private bool _isHightLithing;
 
     public UnityEvent<bool> OnSwitch;
@@ -22,8 +24,12 @@ public class LeverBehaviour : MonoBehaviour, IInteractable
     {
         if (CanSwitch)
         {
-            _animator.SetBool("IsActive", IsActive = !IsActive);
-            OnSwitch.Invoke(_animator);
+            IsActive = !IsActive;
+            _animator.SetBool("IsActive", IsActive);
+            OnSwitch.Invoke(!IsActive);
+            CanSwitch = false;
+
+            _audioSource.Play();
         }
     }
 
